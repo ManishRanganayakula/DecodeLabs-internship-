@@ -1,0 +1,27 @@
+{
+  "name": "campus-lms-api",
+  "version": "1.0.0",
+  "description": "Project 3 - Database Integration: a RESTful CRUD API backed by a relational SQLite database, demonstrating schema design, referential integrity, and injection-safe data access.",
+  "main": "server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "seed": "node src/db/seed.js",
+    "test": "node tests/api.test.js"
+  },
+  "keywords": ["sqlite", "express", "crud", "rest-api", "full-stack"],
+  "author": "DecodeLabs Trainee",
+  "license": "MIT",
+  "dependencies": {
+    "better-sqlite3": "^11.3.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
