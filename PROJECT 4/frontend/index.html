@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DecodeLabs &mdash; Intern Management System</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">DecodeLabs <span>Intern Console</span></div>
+    <div class="status-pill" id="connectionStatus">
+      <span class="dot"></span> <span id="connectionLabel">Checking backend&hellip;</span>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="stats-row" id="statsRow" aria-live="polite">
+      <!-- populated dynamically -->
+    </section>
+
+    <section class="panel">
+      <div class="panel-header">
+        <h2>Add Intern</h2>
+      </div>
+      <form id="internForm" class="intern-form">
+        <input type="text" id="fieldName" placeholder="Full name" required />
+        <select id="fieldRole" required>
+          <option value="" disabled selected>Role</option>
+          <option>Frontend</option>
+          <option>Backend</option>
+          <option>Full Stack</option>
+          <option>AI/ML</option>
+          <option>Data</option>
+        </select>
+        <input type="number" id="fieldBatch" placeholder="Batch year" value="2026" required />
+        <select id="fieldStatus" required>
+          <option value="" disabled selected>Status</option>
+          <option>Active</option>
+          <option>On Leave</option>
+          <option>Completed</option>
+        </select>
+        <button type="submit" id="submitBtn">Add Intern</button>
+      </form>
+    </section>
+
+    <section class="panel">
+      <div class="panel-header">
+        <h2>Interns</h2>
+        <div class="panel-actions">
+          <button id="refreshBtn" class="secondary">Refresh</button>
+          <button id="flakyBtn" class="danger">Simulate Network Failure</button>
+        </div>
+      </div>
+
+      <div id="loadingIndicator" class="loading hidden">Loading interns&hellip;</div>
+      <div id="emptyState" class="empty hidden">No interns yet. Add one above.</div>
+      <table class="intern-table hidden" id="internTable">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Role</th>
+            <th>Batch</th>
+            <th>Status</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="internTableBody"></tbody>
+      </table>
+    </section>
+  </main>
+
+  <div id="toastContainer" class="toast-container" aria-live="assertive"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
